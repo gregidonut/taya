@@ -1,0 +1,22 @@
+---
+import { SignedOut, SignedIn, UserButton } from "@clerk/astro/components";
+import styles from "./header.module.css";
+---
+
+<header class={styles.header}>
+    <h1><a href="/">Taya</a></h1>
+
+    <nav>
+        <ul>
+            <SignedOut>
+                <li><a href="/sign-in">Sign in</a></li>
+                <li><a href="/sign-up">Sign up</a></li>
+            </SignedOut>
+            <SignedIn>
+                <li>
+                    <UserButton />
+                </li>
+            </SignedIn>
+        </ul>
+    </nav>
+</header>

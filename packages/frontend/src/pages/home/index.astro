@@ -1,0 +1,15 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/header/Header.astro";
+import Main from "@/components/main/Main.astro";
+import PostSection from "@/components/home/postSection/PostSection.astro";
+import styles from "./_index.module.css";
+---
+
+<Layout>
+    <Header />
+    <Main>
+        <header class={styles.header}><h2>home</h2></header>
+        <PostSection />
+    </Main>
+</Layout>
