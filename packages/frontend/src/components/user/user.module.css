@@ -1,0 +1,7 @@
+.div {
+    height: 4rem;
+}
+
+.div > img {
+    height: 4rem;
+}

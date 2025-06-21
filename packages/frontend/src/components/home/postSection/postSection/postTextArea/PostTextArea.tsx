@@ -1,4 +1,6 @@
 import React from "react";
+import { useStore } from "@nanostores/react";
+import { $authStore } from "@clerk/astro/client";
 
 import { useForm } from "@tanstack/react-form";
 import type { AnyFieldApi } from "@tanstack/react-form";
@@ -18,15 +20,22 @@ function FieldInfo({ field }: { field: AnyFieldApi }) {
 }
 
 export default function PostTextArea(): React.JSX.Element {
+    const { userId } = useStore($authStore);
     const postTextArea = usePostTextArea();
-    console.log("postTextArea:", postTextArea);
 
     const form = useForm({
         defaultValues: {
             postBody: "",
         },
         onSubmit: async function ({ value }) {
-            console.log(value);
+            if (!postTextArea) {
+                return;
+            }
+            const val = {
+                ...value,
+                userId: userId,
+            };
+            console.log(val);
         },
         validators: {
             onBlurAsyncDebounceMs: 250,
@@ -35,6 +44,7 @@ export default function PostTextArea(): React.JSX.Element {
 
     return (
         <form
+            className={styles.form}
             onSubmit={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
