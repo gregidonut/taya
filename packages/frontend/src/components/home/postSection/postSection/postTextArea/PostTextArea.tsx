@@ -3,6 +3,8 @@ import React from "react";
 import { useForm } from "@tanstack/react-form";
 import type { AnyFieldApi } from "@tanstack/react-form";
 import styles from "./postTextArea.module.css";
+import { usePostTextArea } from "../../context";
+import { cy } from "@/utils";
 
 function FieldInfo({ field }: { field: AnyFieldApi }) {
     return (
@@ -16,6 +18,9 @@ function FieldInfo({ field }: { field: AnyFieldApi }) {
 }
 
 export default function PostTextArea(): React.JSX.Element {
+    const postTextArea = usePostTextArea();
+    console.log("postTextArea:", postTextArea);
+
     const form = useForm({
         defaultValues: {
             postBody: "",
@@ -43,6 +48,10 @@ export default function PostTextArea(): React.JSX.Element {
                         <>
                             <label htmlFor={field.name}>postBody:</label>
                             <textarea
+                                {...cy(
+                                    "newPostTextArea",
+                                    postTextArea ? postTextArea.astroStage : "",
+                                )}
                                 id={field.name}
                                 name={field.name}
                                 value={field.state.value}

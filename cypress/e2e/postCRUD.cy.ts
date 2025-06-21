@@ -5,5 +5,6 @@ describe("postCRUD", () => {
   });
   it("sign up", () => {
     cy.visit("/home");
+    cy.get("[data-cy='newPostTextArea']");
   });
 });

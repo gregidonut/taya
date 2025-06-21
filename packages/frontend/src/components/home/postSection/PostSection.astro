@@ -1,8 +1,14 @@
 ---
 import PostSectionWrapper from "./PostSectionWrapper.tsx";
 import styles from "./postSection.module.css";
+import type { PostTextAreaValue } from "./context.ts";
+
+const astroStage = process.env.ASTRO_STAGE ?? "";
+const p = {
+    astroStage: astroStage,
+} as PostTextAreaValue;
 ---
 
 <section class={styles.section}>
-    <PostSectionWrapper client:only="react" />
+    <PostSectionWrapper client:only="react" p={p} />
 </section>
