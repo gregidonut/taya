@@ -1,5 +1,8 @@
 ---
+import PostSectionWrapper from "./PostSectionWrapper.tsx";
 import styles from "./postSection.module.css";
 ---
 
-<section class={styles.section}>pogi</section>
+<section class={styles.section}>
+    <PostSectionWrapper client:only="react" />
+</section>

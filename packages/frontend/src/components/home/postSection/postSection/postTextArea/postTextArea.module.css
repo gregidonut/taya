@@ -1,0 +1,14 @@
+form p.p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form p.p > label {
+    width: 100%;
+}
+
+form p.p > textarea {
+    width: 100%;
+}
