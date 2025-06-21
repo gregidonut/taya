@@ -1,3 +1,5 @@
+cypress.env.json
+
 # dependencies
 node_modules
 
@@ -16,3 +18,5 @@ node_modules
 
 # misc
 .DS_Store
+
+.idea
