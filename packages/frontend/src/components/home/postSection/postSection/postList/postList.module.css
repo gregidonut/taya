@@ -1,3 +1,7 @@
+.ul {
+    list-style: none;
+}
+
 .article {
     display: flex;
     align-items: flex-start;
