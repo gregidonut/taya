@@ -1,0 +1,13 @@
+import type { APIRoute } from "astro";
+import { clerkClient } from "@clerk/backend";
+
+export const GET: APIRoute = async function ({ locals }) {
+    const response = await clerkClient.users.getUser(
+        "user_2yVz3AT2HT5k7r1zWQjFewi1EgO",
+    );
+
+    return new Response(JSON.stringify(response), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+    });
+};

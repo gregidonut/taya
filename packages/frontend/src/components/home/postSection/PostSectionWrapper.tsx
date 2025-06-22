@@ -1,6 +1,9 @@
 import React from "react";
 import PostSection from "./postSection/PostSection.tsx";
 import { PostTextAreaContext, type PostTextAreaValue } from "./context.ts";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 type Props = {
     p: PostTextAreaValue;
@@ -8,8 +11,10 @@ type Props = {
 
 export default function PostSectionWrapper({ p }: Props): React.JSX.Element {
     return (
-        <PostTextAreaContext.Provider value={p}>
-            <PostSection />
-        </PostTextAreaContext.Provider>
+        <QueryClientProvider client={queryClient}>
+            <PostTextAreaContext.Provider value={p}>
+                <PostSection />
+            </PostTextAreaContext.Provider>
+        </QueryClientProvider>
     );
 }

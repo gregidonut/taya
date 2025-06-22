@@ -1,0 +1,14 @@
+.figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.img {
+    height: 2rem;
+}
+
+.figcaption {
+    font-size: 1rem;
+}
